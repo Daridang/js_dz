@@ -23,4 +23,11 @@
 Подсказка: Возможно, вам понадобится округление чисел и оператор %.
 */
 
-// Здесь пишем решение, данный комментарий необходимо стереть.
+let number = Number(prompt("Введите целое число:"));
+
+let hundreds = Math.floor(number / 100 % 10);
+let tens = Math.floor((number % 100) / 10);
+let units = number % 10;
+
+console.log(`В числе ${number} количество сотен: ${hundreds}, десятков: ${tens}, единиц: ${units}`);
+
