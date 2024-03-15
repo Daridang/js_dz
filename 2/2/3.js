@@ -14,4 +14,20 @@
 число 32.
 */
 
-// Здесь пишем решение, данный комментарий необходимо стереть.
+let dayNumberInput = prompt("Введите целое число в интервале [1, 32):");
+let dayNumber = Number(dayNumberInput);
+
+if (!Number.isInteger(dayNumber) || dayNumber < 1 || dayNumber >= 32) {
+  console.log("Неверное значение.");
+} else {
+  let decade;
+  if (dayNumber <= 10) {
+    decade = 1;
+  } else if (dayNumber <= 20) {
+    decade = 2;
+  } else {
+    decade = 3;
+  }
+
+  console.log(`Число ${dayNumber} попадает в ${decade} декаду месяца.`);
+}
