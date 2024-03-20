@@ -9,4 +9,19 @@
 сообщение "Размер заработной платы за вычетом налогов равен N."
 */
 
-// Здесь пишем решение, данный комментарий необходимо стереть.
+function calculateSalaryAfterTax(salary) {
+  const salaryAfterTax = salary * 0.87;
+  console.log(
+    `Размер заработной платы за вычетом налогов равен ${salaryAfterTax.toFixed(
+      2
+    )}.`
+  );
+}
+
+const userInput = Number(prompt("Пожалуйста, введите вашу заработную плату:"));
+
+if (Number.isNaN(userInput)) {
+  console.log("Значение задано неверно");
+} else {
+  calculateSalaryAfterTax(userInput);
+}
