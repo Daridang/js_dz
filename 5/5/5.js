@@ -17,4 +17,9 @@ const ru = [
   "воскресенье",
 ];
 
-// Здесь пишем решение, данный комментарий необходимо стереть.
+const weekDays = en.reduce((obj, key, index) => {
+  obj[key] = ru[index];
+  return obj;
+}, {});
+
+console.log(weekDays);
