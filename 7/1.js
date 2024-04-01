@@ -33,6 +33,7 @@ document
 /*
 5. У элемента с id "dropdownMenuButton" замените id на "superDropdown".
 */
+document.getElementById("dropdownMenuButton").id = "superDropdown";
 
 /*
 6. Добавьте атрибут data-dd со значением 3 элементу у которого 
