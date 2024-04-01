@@ -14,6 +14,7 @@ document.querySelectorAll(".dropdown-item").forEach(function (element) {
 если он присутствует у этого элемента, либо добавить, если такого 
 класса у элемента не было.
 */
+document.querySelector(".btn").classList.toggle("btn-secondary");
 
 /*
 3. Необходимо удалить класс "dropdown-menu" у элемента, у которого 
