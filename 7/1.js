@@ -20,6 +20,7 @@ document.querySelector(".btn").classList.toggle("btn-secondary");
 3. Необходимо удалить класс "dropdown-menu" у элемента, у которого 
 присутствует класс "menu".
 */
+document.querySelector(".menu").classList.remove("dropdown-menu");
 
 /*
 4. Используя метод insertAdjacentHTML добавьте после div'a с классом 
