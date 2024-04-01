@@ -5,6 +5,9 @@
 один класс "super-dropdown", необходимо использовать методы forEach 
 и querySelectorAll и свойство classList у элементов.
 */
+document.querySelectorAll(".dropdown-item").forEach(function (element) {
+  element.classList.add("super-dropdown");
+});
 
 /*
 2. У элемента с классом btn необходимо убрать класс "btn-secondary", 
