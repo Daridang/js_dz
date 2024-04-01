@@ -46,3 +46,4 @@ document.querySelector('[aria-labelledby="dropdownMenuButton"]').dataset.dd =
 /*
 7. Удалите атрибут type у элемента с классом "dropdown-toggle".
 */
+document.querySelector(".dropdown-toggle").removeAttribute("type");
