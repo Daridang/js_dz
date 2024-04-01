@@ -40,6 +40,8 @@ document.getElementById("dropdownMenuButton").id = "superDropdown";
 существует атрибут "aria-labelledby" равный "dropdownMenuButton" 
 используя dataset.
 */
+document.querySelector('[aria-labelledby="dropdownMenuButton"]').dataset.dd =
+  "3";
 
 /*
 7. Удалите атрибут type у элемента с классом "dropdown-toggle".
