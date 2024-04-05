@@ -25,6 +25,13 @@ window.addEventListener("load", function () {
 - которому был совершен клик.
 - Необходимо использовать делегирование.
 */
+document.addEventListener("click", ({ target }) => {
+  const { classList, tagName } = target;
+  const message = classList.contains("super_element")
+    ? `Класс "super_element" присутствует в элементе "${tagName.toLowerCase()}".`
+    : `Класс "super_element" отсутствует в элементе "${tagName.toLowerCase()}".`;
+  console.log(message);
+});
 
 /*
 4. Сделайте, чтобы при наведении на textarea в консоли появлялось сообщение: 
