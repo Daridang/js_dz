@@ -47,6 +47,11 @@ document.querySelector("textarea").addEventListener("mouseover", () => {
 по которой был произведен клик. Если клик был не по кнопке, то ничего 
 выводить не нужно. Необходимо использовать делегирование.
 */
+document.querySelector("ul").addEventListener("click", (event) => {
+  if (event.target.tagName === "BUTTON") {
+    console.log(event.target.textContent);
+  }
+});
 
 /*
 6. Вопрос: Почему в console.log пишется сначала текст из 5 задания и 
