@@ -37,6 +37,9 @@ document.addEventListener("click", ({ target }) => {
 4. Сделайте, чтобы при наведении на textarea в консоли появлялось сообщение: 
 "Вы навели на textarea."
 */
+document.querySelector("textarea").addEventListener("mouseover", () => {
+  console.log("Вы навели на textarea.");
+});
 
 /*
 5. Необходимо повесить событие клика на тег ul. В обработчике события 
