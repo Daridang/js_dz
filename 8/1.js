@@ -63,3 +63,9 @@ document.querySelector("ul").addEventListener("click", (event) => {
 /*
 7. С помощью JS необходимо изменить цвет заднего фона каждого второго тега li.
 */
+const listItems = document.querySelectorAll("li");
+listItems.forEach((item, index) => {
+  if (index % 2 === 1) {
+    item.style.backgroundColor = "lightgrey";
+  }
+});
