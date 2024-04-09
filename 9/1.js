@@ -33,3 +33,29 @@ messageBtn.addEventListener("click", () => {
      данному полю).
 - Если поле было чем-либо заполнено, подсветку (класс error) необходимо убрать.
 */
+const form = document.querySelector("form");
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  let isFormValid = true;
+  form.querySelectorAll(".form-control").forEach((input) => {
+    if (!input.value.trim()) {
+      input.classList.add("error");
+      isFormValid = false;
+    } else {
+      input.classList.remove("error");
+    }
+  });
+  if (isFormValid) {
+    console.log("Форма успешно отправлена");
+  }
+});
+
+form.querySelectorAll(".form-control").forEach((input) => {
+  input.addEventListener("input", () => {
+    if (!input.value.trim() && !input.classList.contains("error")) {
+      input.classList.add("error");
+    } else if (input.value.trim()) {
+      input.classList.remove("error");
+    }
+  });
+});
