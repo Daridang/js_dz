@@ -5,6 +5,11 @@
 в нем должно моментально отображаться в span. То есть при печати в 
 input'е тег span также должен меняться.
 */
+const inputEl = document.getElementById("from");
+const spanEl = document.querySelector("span");
+inputEl.addEventListener("input", () => {
+  spanEl.textContent = inputEl.value;
+});
 /*
 2. При клике на кнопку с классом messageBtn необходимо элементу с классом message:
 - добавить два класса: animate_animated и animate_fadeInLeftBig
