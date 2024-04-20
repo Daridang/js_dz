@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Wine - Cotes Du Rhone Parallele",
+        "description": "Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.",
+        "price": 414.66,
+        "img_url": "http://dummyimage.com/200x150.png/5fa2dd/ffffff"
+    },
+    {
+        "name": "Yogurt - Raspberry, 175 Gr",
+        "description": "In quis justo.",
+        "price": 959.85,
+        "img_url": "http://dummyimage.com/200x150.png/cc0000/ffffff"
+    },
+    {
+        "name": "Tomato - Plum With Basil",
+        "description": "Phasellus id sapien in sapien iaculis congue.",
+        "price": 182.07,
+        "img_url": "http://dummyimage.com/200x150.png/ff4444/ffffff"
+    },
+    {
+        "name": "Couscous",
+        "description": "Proin risus.",
+        "price": 416.52,
+        "img_url": "http://dummyimage.com/200x150.png/5fa2dd/ffffff"
+    },
+    {
+        "name": "Cod - Fillets",
+        "description": "Vivamus vel nulla eget eros elementum pellentesque.",
+        "price": 97.31,
+        "img_url": "http://dummyimage.com/200x150.png/ff4444/ffffff"
+    },
+    {
+        "name": "Chocolate - Pistoles, White",
+        "description": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.",
+        "price": 578.79,
+        "img_url": "http://dummyimage.com/200x150.png/dddddd/000000"
+    }
+]
