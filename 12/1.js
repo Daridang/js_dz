@@ -1,24 +1,31 @@
 "use strict";
 
-const VideoEl = document.createElement("video");
-VideoEl.setAttribute("src", "rabbit320.mp4");
+const videoEl = document.createElement("video");
+videoEl.setAttribute("src", "rabbit320.mp4");
+videoEl.style.width = "100%";
 
-const containerEl = document.querySelector(".containerVideo");
-containerEl.appendChild(VideoEl);
+const containerEl = document.querySelector(".video-container");
+containerEl.appendChild(videoEl);
+
+const controlsEl = document.createElement("div");
+controlsEl.classList.add("video-controls");
 
 const playEl = document.createElement("div");
+playEl.classList.add("buttton", "play");
 const pauseEl = document.createElement("div");
-playEl.classList.add("play");
-pauseEl.classList.add("pause");
+pauseEl.classList.add("button", "pause");
 
 playEl.addEventListener("click", function (e) {
-  VideoEl.play();
-  console.log(VideoEl.duration, VideoEl.currentTime);
+  videoEl.play();
 });
 pauseEl.addEventListener("click", function (e) {
-  VideoEl.pause();
-  console.log(VideoEl.duration, VideoEl.currentTime);
+  videoEl.pause();
 });
+
+controlsEl.appendChild(playEl);
+controlsEl.appendChild(pauseEl);
+
+containerEl.appendChild(controlsEl);
 
 const rangeEl = document.createElement("input");
 rangeEl.setAttribute("type", "range");
@@ -27,12 +34,12 @@ rangeEl.setAttribute("max", "100");
 rangeEl.setAttribute("value", "0");
 rangeEl.addEventListener("change", function (e) {
   console.log(e.target.value);
-  VideoEl.currentTime = (e.target.value / 100) * VideoEl.duration;
+  videoEl.currentTime = (e.target.value / 100) * videoEl.duration;
 });
-VideoEl.addEventListener("timeupdate", (e) => {
+videoEl.addEventListener("timeupdate", (e) => {
   rangeEl.setAttribute(
     "value",
-    Math.round((VideoEl.currentTime / VideoEl.duration) * 100)
+    Math.round((videoEl.currentTime / videoEl.duration) * 100)
   );
 });
 
@@ -42,12 +49,11 @@ volumeEl.setAttribute("min", "0");
 volumeEl.setAttribute("max", "100");
 volumeEl.setAttribute("value", "0");
 
-VideoEl.addEventListener("loadeddata", (event) => {
-  volumeEl.setAttribute("value", VideoEl.volume * 100);
+videoEl.addEventListener("loadeddata", (event) => {
+  volumeEl.setAttribute("value", videoEl.volume * 100);
 });
 volumeEl.addEventListener("change", function (e) {
-  VideoEl.volume = e.target.value / 100;
-  console.log(VideoEl.volume);
+  videoEl.volume = e.target.value / 100;
 });
 
 containerEl.appendChild(volumeEl);
