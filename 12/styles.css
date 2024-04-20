@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.play {
+    background-image: url(play.svg);
+    width: 100px;
+    height: 100px;
+}
+
+.pause {
+    background-image: url(pause.svg);
+    width: 100px;
+    height: 100px;
+}
