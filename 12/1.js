@@ -11,52 +11,51 @@ const controlsEl = document.createElement("div");
 controlsEl.classList.add("video-controls");
 
 const playEl = document.createElement("div");
-playEl.classList.add("buttton", "play");
+playEl.classList.add("button", "play");
 const pauseEl = document.createElement("div");
 pauseEl.classList.add("button", "pause");
 
-playEl.addEventListener("click", function (e) {
+playEl.addEventListener("click", function () {
   videoEl.play();
 });
-pauseEl.addEventListener("click", function (e) {
+pauseEl.addEventListener("click", function () {
   videoEl.pause();
+});
+
+const rangeEl = document.createElement("input");
+rangeEl.type = "range";
+rangeEl.min = "0";
+rangeEl.max = "100";
+rangeEl.value = "0";
+
+videoEl.addEventListener("timeupdate", () => {
+  const percentage = (videoEl.currentTime / videoEl.duration) * 100;
+  rangeEl.value = Math.round(percentage);
+});
+
+rangeEl.addEventListener("input", (e) => {
+  const seekTime = (e.target.value / 100) * videoEl.duration;
+  videoEl.currentTime = seekTime;
+});
+
+const volumeEl = document.createElement("input");
+volumeEl.type = "range";
+volumeEl.min = "0";
+volumeEl.max = "100";
+volumeEl.value = videoEl.volume * 100;
+
+volumeEl.addEventListener("input", (e) => {
+  videoEl.volume = e.target.value / 100;
 });
 
 controlsEl.appendChild(playEl);
 controlsEl.appendChild(pauseEl);
+controlsEl.appendChild(volumeEl);
+controlsEl.appendChild(rangeEl);
 
 containerEl.appendChild(controlsEl);
 
-const rangeEl = document.createElement("input");
-rangeEl.setAttribute("type", "range");
-rangeEl.setAttribute("min", "0");
-rangeEl.setAttribute("max", "100");
-rangeEl.setAttribute("value", "0");
-rangeEl.addEventListener("change", function (e) {
-  console.log(e.target.value);
-  videoEl.currentTime = (e.target.value / 100) * videoEl.duration;
+videoEl.addEventListener("loadedmetadata", () => {
+  volumeEl.value = videoEl.volume * 100;
+  rangeEl.value = (videoEl.currentTime / videoEl.duration) * 100;
 });
-videoEl.addEventListener("timeupdate", (e) => {
-  rangeEl.setAttribute(
-    "value",
-    Math.round((videoEl.currentTime / videoEl.duration) * 100)
-  );
-});
-
-const volumeEl = document.createElement("input");
-volumeEl.setAttribute("type", "range");
-volumeEl.setAttribute("min", "0");
-volumeEl.setAttribute("max", "100");
-volumeEl.setAttribute("value", "0");
-
-videoEl.addEventListener("loadeddata", (event) => {
-  volumeEl.setAttribute("value", videoEl.volume * 100);
-});
-volumeEl.addEventListener("change", function (e) {
-  videoEl.volume = e.target.value / 100;
-});
-
-containerEl.appendChild(volumeEl);
-containerEl.appendChild(rangeEl);
-containerEl.appendChild(playEl);
-containerEl.appendChild(pauseEl);
