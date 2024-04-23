@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.video-container {
+    position: relative;
+    max-width: 640px;
+    margin: auto;
+}
+
+.video-controls {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: #333;
+}
+
+.button {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    margin: 0 10px;
+}
+
+.play {
+    background-image: url(play.svg);
+}
+
+.pause {
+    background-image: url(pause.svg);
+}
+
+.current-time {
+    color: #fff;
+}
+
+.duration {
+    color: #fff;
+}
