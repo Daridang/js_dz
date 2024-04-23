@@ -31,3 +31,11 @@
 .pause {
     background-image: url(pause.svg);
 }
+
+.current-time {
+    color: #fff;
+}
+
+.duration {
+    color: #fff;
+}

@@ -15,6 +15,17 @@ playEl.classList.add("button", "play");
 const pauseEl = document.createElement("div");
 pauseEl.classList.add("button", "pause");
 
+const timeDisplayEl = document.createElement("div");
+timeDisplayEl.classList.add("time-display");
+
+const currentTimeEl = document.createElement("span");
+currentTimeEl.classList.add("current-time");
+currentTimeEl.textContent = "00:00";
+
+const durationEl = document.createElement("span");
+durationEl.classList.add("duration");
+durationEl.textContent = "00:00";
+
 playEl.addEventListener("click", function () {
   videoEl.play();
 });
@@ -31,6 +42,8 @@ rangeEl.value = "0";
 videoEl.addEventListener("timeupdate", () => {
   const percentage = (videoEl.currentTime / videoEl.duration) * 100;
   rangeEl.value = Math.round(percentage);
+  currentTimeEl.textContent = formatTime(videoEl.currentTime);
+  durationEl.textContent = formatTime(videoEl.duration);
 });
 
 rangeEl.addEventListener("input", (e) => {
@@ -48,14 +61,28 @@ volumeEl.addEventListener("input", (e) => {
   videoEl.volume = e.target.value / 100;
 });
 
+timeDisplayEl.appendChild(currentTimeEl);
+timeDisplayEl.appendChild(document.createTextNode(" / "));
+timeDisplayEl.appendChild(durationEl);
+
 controlsEl.appendChild(playEl);
 controlsEl.appendChild(pauseEl);
 controlsEl.appendChild(volumeEl);
 controlsEl.appendChild(rangeEl);
+controlsEl.appendChild(timeDisplayEl);
 
 containerEl.appendChild(controlsEl);
 
 videoEl.addEventListener("loadedmetadata", () => {
   volumeEl.value = videoEl.volume * 100;
   rangeEl.value = (videoEl.currentTime / videoEl.duration) * 100;
+  durationEl.textContent = formatTime(videoEl.duration);
 });
+
+function formatTime(seconds) {
+  const mins = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return (
+    mins.toString().padStart(2, "0") + ":" + secs.toString().padStart(2, "0")
+  );
+}
